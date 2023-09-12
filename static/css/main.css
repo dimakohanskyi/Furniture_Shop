@@ -126,3 +126,29 @@ button{
 .register p a: hover{
     text-decoration: underline;
 }
+
+.main_logo {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 20px;
+    left: 20px;
+}
+
+
+.welcome_block {
+    position: relative; /* Make the container relative to position the text */
+    width: 100%; /* Set the width and height of the container as per your image size */
+    height: 100%;
+}
+
+.main_img {
+    width: 100%; /* Make the image fill the container */
+    height: 100%;
+}
+
+
+.header_info{
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.5);
+}
