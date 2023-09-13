@@ -2,46 +2,30 @@
 
 
 {% block body %}
-<nav class="navbar navbar-expand-md bg-dark sticky-top border-bottom" data-bs-theme="dark">
-    <img class="main_logo" src="https://scontent.flwo4-2.fna.fbcdn.net/v/t39.30808-1/295141245_995830057927618_1729107216749950674_n.png?stp=dst-png_p320x320&_nc_cat=104&ccb=1-7&_nc_sid=754033&_nc_ohc=uM1BPy0fIzIAX__pi-S&_nc_ht=scontent.flwo4-2.fna&oh=00_AfAGbHkzA_hGuBM7t4ciNx01OyEiyM1YcpoND305vHZZfg&oe=65053348">
-  <div class="container">
-    <a class="navbar-brand d-md-none" href="#">
-      <svg class="bi" width="24" height="24"><use xlink:href="#aperture"></use></svg>
-      Aperture
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="#offcanvas" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="#offcanvas" aria-labelledby="#offcanvasLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="#offcanvasLabel">Aperture</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav flex-grow-1 justify-content-between">
-          <li class="nav-item"><a class="nav-link" href="#">
-            <svg class="bi" width="24" height="24"><use xlink:href="#aperture"></use></svg>
-          </a></li>
-          <li class="nav-item"><a class="nav-link" href="#"><a href="{{ url_for('home') }}" style="text-decoration: none; color: #fff">Home</a></a></li>
-          <li class="nav-item"><a class="nav-link" href="#"><a href="{{ url_for('product_page') }}" style="text-decoration: none; color: #fff">Product</a></a></li>
-          <li class="nav-item"><a class="nav-link" href="#"><a href="{{ url_for('services_page') }}" style="text-decoration: none; color: #fff">Services</a></a></li>
-          <li class="nav-item"><a class="nav-link" href="#"><a href="{{ url_for('contacts_page') }}" style="text-decoration: none; color: #fff">Contacts</a></a></li>
-          <li class="nav-item"><a class="nav-link" href="#"><a href="{{ url_for('location_page') }}" style="text-decoration: none; color: #fff">Location</a></a></li>
-            <li class="nav-item"><a class="nav-link" href="#"><a href="{{ url_for('register_page') }}" style="text-decoration: none; color: #fff">Sign Up</a></a></li>
-            <li class="nav-item"><a class="nav-link" href="#"><a href="{{ url_for('login_page') }}" style="text-decoration: none; color: #fff">Log In</a></a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</nav>
+<section class="welcome_block">
 
-<div class="welcome_block">
+      <nav class="navbar navbar-expand-md bg-gainsboro sticky-top border-bottom" style="backdrop-filter: blur(18px);">
+          <img class="main_logo" src="https://scontent.flwo4-2.fna.fbcdn.net/v/t39.30808-1/295141245_995830057927618_1729107216749950674_n.png?stp=dst-png_p320x320&_nc_cat=104&ccb=1-7&_nc_sid=754033&_nc_ohc=uM1BPy0fIzIAX__pi-S&_nc_ht=scontent.flwo4-2.fna&oh=00_AfAGbHkzA_hGuBM7t4ciNx01OyEiyM1YcpoND305vHZZfg&oe=65053348">
 
-  <img class="main_img" src="static/image/new_sofa_1.jpg">
+          <div class="container">
 
-</div>
+              <ul class="navbar-nav flex-grow-1 justify-content-between">
+                  <li class="nav-item"><a class="nav-link" href="#"><a href="{{ url_for('home') }}" style="text-decoration: none; color: #696969">Home</a></a></li>
+                  <li class="nav-item"><a class="nav-link" href="#"><a href="{{ url_for('product_page') }}" style="text-decoration: none; color: #696969">Product</a></a></li>
+                  <li class="nav-item"><a class="nav-link" href="#"><a href="{{ url_for('services_page') }}" style="text-decoration: none; color: #696969">Services</a></a></li>
+                  <li class="nav-item"><a class="nav-link" href="#"><a href="{{ url_for('contacts_page') }}" style="text-decoration: none; color: #696969">Contacts</a></a></li>
+                  <li class="nav-item"><a class="nav-link" href="#"><a href="{{ url_for('location_page') }}" style="text-decoration: none; color: #696969">Location</a></a></li>
+                  <li class="nav-item"><a class="nav-link" href="#"><a href="{{ url_for('register_page') }}" style="text-decoration: none; color: #696969">Sign Up</a></a></li>
+                  <li class="nav-item"><a class="nav-link" href="#"><a href="{{ url_for('login_page') }}" style="text-decoration: none; color: #696969">Log In</a></a></li>
+              </ul>
+        </div>
+      </nav>
 
-<h1>Contacts page</h1>
+
+
+
+</section>
+
 
 
 {% endblock %}

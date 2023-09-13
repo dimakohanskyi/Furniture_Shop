@@ -1,9 +1,21 @@
+.welcome_block {
+    background: url('/static/image/new_sofa_1.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+
+}
+
+
+
+
 *{
     font-family: 'Libre Baskerville', serif;
     font-family: 'Poppins', sans-serif;
 }
 
-section{
+.register_section{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -127,6 +139,10 @@ button{
     text-decoration: underline;
 }
 
+
+
+
+
 .main_logo {
     position: relative;
     width: 60px;
@@ -136,16 +152,7 @@ button{
 }
 
 
-.welcome_block {
-    position: relative; /* Make the container relative to position the text */
-    width: 100%; /* Set the width and height of the container as per your image size */
-    height: 100%;
-}
 
-.main_img {
-    width: 100%; /* Make the image fill the container */
-    height: 100%;
-}
 
 
 .header_info{
@@ -153,4 +160,28 @@ button{
     border: 2px solid rgba(255,255,255,0.5);
 }
 
+
+
+
+.title_information{
+    font-family: 'Libre Baskerville', serif;
+    font-weight: bold;
+    font-size: 40px;
+    color: #708090;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.subtitle_information{
+    font-family: 'Libre Baskerville', serif;
+    font-size: 20px;
+    position: absolute;
+    top: calc(38% + 60px); /* Adjust the top value to place it below the title */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+
+}
 
