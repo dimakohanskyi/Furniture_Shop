@@ -1,0 +1,46 @@
+.third_body_part{
+    height: 100vh;
+    background-image: url('/static/image/third-back.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.third-title{
+    font-family: 'Libre Baskerville', serif;
+    font-weight: bold;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 20vh;
+}
+
+
+.all_services{
+    justify-content: center;
+    position: relative;
+}
+
+
+
+.card_service_1,
+.card_service_2,
+.card_service_3,
+.card_service_4{
+    border-radius: 10px;
+    border: 2px solid orange; /* Add a border with orange color */
+    margin: 50px;
+    padding: 15px; /* Add padding to create space inside the card */
+    height: 300px;
+    width: 250px;
+    text-align: center; /* Center-align the text horizontally */
+    background-color: #fff;
+}
+
+
+
+
+
+
