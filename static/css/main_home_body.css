@@ -1,0 +1,49 @@
+.welcome_block {
+    background: url('/static/image/new_sofa_1.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+
+}
+
+
+
+.main_logo {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 20px;
+    left: 20px;
+}
+
+
+
+.header_info{
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.5);
+}
+
+
+.title_information{
+    font-family: 'Libre Baskerville', serif;
+    font-weight: bold;
+    font-size: 40px;
+    color: #708090;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.subtitle_information{
+    font-family: 'Libre Baskerville', serif;
+    font-size: 20px;
+    position: absolute;
+    top: calc(38% + 60px); /* Adjust the top value to place it below the title */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+
+}
+

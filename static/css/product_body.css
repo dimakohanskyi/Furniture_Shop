@@ -1,0 +1,73 @@
+.try_page_body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.card{
+    margin: 50px;
+    height: 400px;
+    width: 350px;
+    position: relative;
+    transition: all 1s linear;
+    transform-style: preserve-3d;
+}
+
+.front,
+.back{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 3em;
+    font-family: 'Lobster', cursive;
+    position: absolute;
+
+}
+
+.front{
+    z-index: 2;
+    backface-visibility: hidden;
+}
+
+.product1{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product1_title{
+    color: #708090;
+    font-family: 'Libre Baskerville', serif;
+    margin: 20px;
+}
+
+.product1_subtitle{
+    text-weight: 30px;
+    font-family: 'Libre Baskerville', serif;
+    margin: 20px;
+}
+
+
+.back{
+    background: #DCDCDC;
+    z-index: 1;
+    transform: rotateY(180deg);
+    text-align: center; /* Horizontally center the text */
+    display: flex; /* Use flexbox for vertical centering */
+    flex-direction: column; /* Stack child elements vertically */
+    justify-content: center;
+}
+
+.container_try:hover .card {
+    transform: rotateY(180deg);
+}
+
+.container{
+    perspective: 1000px;
+}
+
+
