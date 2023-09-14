@@ -6,12 +6,13 @@
 <section class="welcome_block">
 
       <nav class="navbar navbar-expand-md bg-gainsboro sticky-top border-bottom" style="backdrop-filter: blur(18px);">
-          <img class="main_logo" src="https://scontent.flwo4-2.fna.fbcdn.net/v/t39.30808-1/295141245_995830057927618_1729107216749950674_n.png?stp=dst-png_p320x320&_nc_cat=104&ccb=1-7&_nc_sid=754033&_nc_ohc=uM1BPy0fIzIAX__pi-S&_nc_ht=scontent.flwo4-2.fna&oh=00_AfAGbHkzA_hGuBM7t4ciNx01OyEiyM1YcpoND305vHZZfg&oe=65053348">
+          <a href="{{ url_for('home') }}">
+            <img class="main_logo" src="https://scontent.flwo4-2.fna.fbcdn.net/v/t39.30808-1/295141245_995830057927618_1729107216749950674_n.png?stp=dst-png_p320x320&_nc_cat=104&ccb=1-7&_nc_sid=754033&_nc_ohc=uM1BPy0fIzIAX__pi-S&_nc_ht=scontent.flwo4-2.fna&oh=00_AfAGbHkzA_hGuBM7t4ciNx01OyEiyM1YcpoND305vHZZfg&oe=65053348">
+          </a>
 
           <div class="container">
 
               <ul class="navbar-nav flex-grow-1 justify-content-between">
-                  <li class="nav-item"><a class="nav-link" href="#"><a href="{{ url_for('home') }}" style="text-decoration: none; color: #696969">Home</a></a></li>
                   <li class="nav-item"><a class="nav-link" href="#"><a href="{{ url_for('product_page') }}" style="text-decoration: none; color: #696969">Product</a></a></li>
                   <li class="nav-item"><a class="nav-link" href="#"><a href="{{ url_for('services_page') }}" style="text-decoration: none; color: #696969">Services</a></a></li>
                   <li class="nav-item"><a class="nav-link" href="#"><a href="{{ url_for('contacts_page') }}" style="text-decoration: none; color: #696969">Contacts</a></a></li>

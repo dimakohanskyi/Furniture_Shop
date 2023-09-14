@@ -1,20 +1,21 @@
 from datetime import datetime
-from flask import Flask, render_template, request, jsonify
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, render_template, request, jsonify, flash
+from flask_sqlalchemy import SQLAlchemy, query, session
 from sqlalchemy.orm.exc import NoResultFound
 
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///e:/PROJECTS/log in flask/db/users.db'
+app.config['SECRET_KEY'] = 'dimadima milavika dimadima'
 db = SQLAlchemy(app)
 
 
 class Users(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50))
     email = db.Column(db.String(50))
     password = db.Column(db.String(50))
+    confirm_password = db.Column(db.String(50))
     time = db.Column(db.DateTime, default=datetime.utcnow)
 
 
@@ -69,6 +70,7 @@ def login_validation():
         # Compare the hashed password from the database with the input password
         if user and user.password == password_data_from_input:
             return render_template('index.html')
+
         else:
             return jsonify({'message': 'Invalid email or password'}), 401
 
@@ -78,13 +80,23 @@ def login_validation():
 
 @app.route('/register_validation', methods=['GET', 'POST'])
 def register_validation():
-    name_reg = request.form.get('name_reg')
     email_reg = request.form.get('email')
-    password_reg = request.form.get('password')
+    password_1 = request.form.get('password1')
+    password_2 = request.form.get('password2')
 
-    new_user = Users(name=name_reg, email=email_reg, password=password_reg)
-    db.session.add(new_user)
-    db.session.commit()
+    if len(email_reg) < 4:
+        return jsonify({'message': 'The email must be more then 4 symbols'})
+
+    elif len(password_1) <= 8:
+        return jsonify({'message': 'The password must be more then 8 symbols'})
+
+    elif password_1 != password_2:
+        return jsonify({'message': 'The password does not matches'})
+
+    else:
+        new_user = Users(email=email_reg, password=password_1, confirm_password=password_2)
+        db.session.add(new_user)
+        db.session.commit()
 
     return jsonify({'message': 'Created account'}), 201
 

@@ -9,11 +9,7 @@
             <div class="form-value">
                 <form method="post" action="/register_validation">
                     <h2>Creating Account</h2>
-                    <div class="inputbox">
-                        <ion-icon name="mail-outline"></ion-icon>
-                        <input type="email" name="name_reg">
-                        <label>Nickname</label>
-                    </div>
+
                     <div class="inputbox">
                         <ion-icon name="mail-outline"></ion-icon>
                         <input type="email" name="email">
@@ -21,9 +17,17 @@
                     </div>
                     <div class="inputbox">
                         <ion-icon name="lock-closed-outline"></ion-icon>
-                        <input type="password" name="password">
+                        <input type="password" name="password1">
                         <label>Password</label>
                     </div>
+
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" name="password2">
+                        <label>Confirm Password</label>
+                    </div>
+
+
                     <div class="forget">
                         <label><a href="{{ url_for('login_page') }}">Have account? Login</a></label>
 
