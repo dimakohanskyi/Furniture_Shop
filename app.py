@@ -1,9 +1,7 @@
 from datetime import datetime
 from flask import Flask, render_template, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
-from werkzeug.security import check_password_hash  # for password validation
 from sqlalchemy.orm.exc import NoResultFound
-from sqlalchemy import select
 
 
 app = Flask(__name__)
@@ -44,13 +42,20 @@ def services_page():
 def contacts_page():
     return render_template('contacts.html')
 
+
 @app.route('/location')
 def location_page():
     return render_template('location.html')
 
+
 @app.route('/register')
 def register_page():
     return render_template('register.html')
+
+
+@app.route('/try')
+def try_page():
+    return render_template('try_xyi.html')
 
 
 @app.route('/login_validation', methods=['POST'])
