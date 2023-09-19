@@ -2,6 +2,7 @@ from datetime import datetime
 from flask import Flask, render_template, request, jsonify, flash
 from flask_sqlalchemy import SQLAlchemy, query, session
 from sqlalchemy.orm.exc import NoResultFound
+import bcrypt
 
 
 app = Flask(__name__)
@@ -15,7 +16,7 @@ class Users(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(50))
     password = db.Column(db.String(50))
-    confirm_password = db.Column(db.String(50))
+    role = db.Column(db.String)
     time = db.Column(db.DateTime, default=datetime.utcnow)
 
 
@@ -66,9 +67,10 @@ def login_validation():
 
     try:
         user = Users.query.filter_by(email=email_data_from_input).one()
+        check_passwords = bcrypt.checkpw(password=password_data_from_input.encode('utf-8'),
+                                         hashed_password=user.password)
 
-        # Compare the hashed password from the database with the input password
-        if user and user.password == password_data_from_input:
+        if user and check_passwords:
             return render_template('index.html')
 
         else:
@@ -84,17 +86,14 @@ def register_validation():
     password_1 = request.form.get('password1')
     password_2 = request.form.get('password2')
 
-    if len(email_reg) < 4:
-        return jsonify({'message': 'The email must be more then 4 symbols'})
+    hashed_password_1 = bcrypt.hashpw(password_1.encode('utf-8'), bcrypt.gensalt())
 
-    elif len(password_1) <= 8:
-        return jsonify({'message': 'The password must be more then 8 symbols'})
-
-    elif password_1 != password_2:
+    if password_1 != password_2:
         return jsonify({'message': 'The password does not matches'})
 
     else:
-        new_user = Users(email=email_reg, password=password_1, confirm_password=password_2)
+        role = 'User'
+        new_user = Users(email=email_reg, password=hashed_password_1, role=role)
         db.session.add(new_user)
         db.session.commit()
 
