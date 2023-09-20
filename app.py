@@ -2,7 +2,9 @@ from datetime import datetime
 from flask import Flask, render_template, request, jsonify, flash
 from flask_sqlalchemy import SQLAlchemy, query, session
 from sqlalchemy.orm.exc import NoResultFound
-import bcrypt
+import bcrypt                         #for hashed passwords
+import re                             #for validation email
+from password_validator import PasswordValidator
 
 
 app = Flask(__name__)
@@ -86,13 +88,36 @@ def register_validation():
     password_1 = request.form.get('password1')
     password_2 = request.form.get('password2')
 
-    hashed_password_1 = bcrypt.hashpw(password_1.encode('utf-8'), bcrypt.gensalt())
+    pattern = r"^[\w\.-]+@[\w\.-]+\.\w+$"
+    if re.match(pattern, email_reg):
+        print(True)
+    else:
+        return jsonify({"message": "Invalid email address"}), 400
+
+    if not password_1 or not password_2:
+        return jsonify({'message': 'Password fields cannot be empty'}), 400
+
+    password_validator = PasswordValidator()
+
+    password_validator.min(6).max(20).has().lowercase().has().uppercase().has().digits().has().symbols()
+    is_valid = password_validator.validate(password_1)
+
+    if is_valid:
+        print('Password is valid')
+    else:
+        return jsonify({"message": "Invalid password, Password must have at list one Upper Case,"
+                                   " digits, symbols and range 6-20"})
 
     if password_1 != password_2:
-        return jsonify({'message': 'The password does not matches'})
+        return jsonify({'message': 'The password does not matches'}), 400
+
+    existing_user = Users.query.filter_by(email=email_reg).first()
+    if existing_user:
+        return jsonify({'message': 'Email is already registered'}), 400
 
     else:
         role = 'User'
+        hashed_password_1 = bcrypt.hashpw(password_1.encode('utf-8'), bcrypt.gensalt())
         new_user = Users(email=email_reg, password=hashed_password_1, role=role)
         db.session.add(new_user)
         db.session.commit()
