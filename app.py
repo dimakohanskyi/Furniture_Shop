@@ -2,8 +2,8 @@ from datetime import datetime
 from flask import Flask, render_template, request, jsonify, flash
 from flask_sqlalchemy import SQLAlchemy, query, session
 from sqlalchemy.orm.exc import NoResultFound
-import bcrypt                         #for hashed passwords
-import re                             #for validation email
+import bcrypt                                    #for hashed passwords
+import re                                        #for validation email
 from password_validator import PasswordValidator
 
 
