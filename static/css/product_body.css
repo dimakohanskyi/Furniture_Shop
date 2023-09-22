@@ -1,6 +1,7 @@
 .try_page_body{
-    height: 100vh;
+    height: 320vh;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     background-color: #f5f5f5 ;
@@ -9,8 +10,8 @@
 
 .card{
     margin: 50px;
-    height: 400px;
-    width: 350px;
+    height: 380px;
+    width: 320px;
     position: relative;
     transition: all 1s linear;
     transform-style: preserve-3d;
