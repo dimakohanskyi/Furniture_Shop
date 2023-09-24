@@ -5,11 +5,23 @@ from sqlalchemy.orm.exc import NoResultFound
 import bcrypt                                    #for hashed passwords
 import re                                        #for validation email
 from password_validator import PasswordValidator
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+
+MY_EMAIL = os.getenv("EMAIL_MY_EMAIL")
+MY_PASSWORD = os.getenv("EMAIL_MY_PASSWORD")
 
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///e:/PROJECTS/log in flask/db/users.db'
-app.config['SECRET_KEY'] = 'dimadima milavika dimadima'
+app.config['SECRET_KEY'] = [os.getenv("SECRET_KEY_DB")]
 db = SQLAlchemy(app)
 
 
@@ -30,6 +42,33 @@ def login_page():
 @app.route('/home')
 def home():
     return render_template('index.html')
+
+
+@app.route('/submit_form', methods=['GET'])
+def submit_form():
+    customer_email = request.args.get('emailContact')
+    customer_name = request.args.get('fullNameC')
+    customer_message = request.args.get('customer_message')
+
+    try:
+        connection = smtplib.SMTP("smtp.gmail.com")
+        connection.starttls()
+        connection.login(MY_EMAIL, MY_PASSWORD)
+
+        msg = MIMEText(f"Customer email: {customer_email}\n\n"
+                             f"Customer name: {customer_name}\n\n"
+                             f"Customer message:{customer_message}", 'plain', 'utf-8')
+
+        msg['Subject'] = "Customer feedback"
+        connection.sendmail(
+            from_addr=customer_email,
+            to_addrs=MY_EMAIL,
+            msg=msg.as_string()
+        )
+    except Exception as ex:
+        print(ex)
+
+    return jsonify({"message": "successfully send", "email": customer_email})
 
 
 @app.route('/product')

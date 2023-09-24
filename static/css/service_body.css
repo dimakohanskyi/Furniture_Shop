@@ -5,9 +5,12 @@
 
 .third_body_part{
     height: 120vh;
-    background-image: url('');
     box-sizes: border-box;
+    background-image: url(''); /* Replace 'your-image-url.jpg' with the path to your image */
+    background-size: cover; /* This will make the background image cover the entire element */
+    background-repeat: no-repeat; /
 }
+
 
 
 
@@ -77,7 +80,7 @@
 }
 
 .service-title{
-    font-size: 18px;
+    font-size: 20px;
     text-transorm: uppercase;
     margin-bottom: 10px;
 }
