@@ -2,11 +2,11 @@
 
 
 {% block body %}
-<section class="welcome_block">
+<section class="welcome_block_service_page">
 
       <nav class="navbar navbar-expand-md bg-gainsboro sticky-top border-bottom" style="backdrop-filter: blur(18px);">
            <a href="{{ url_for('home') }}">
-            <img class="main_logo" src="https://scontent.flwo4-2.fna.fbcdn.net/v/t39.30808-1/295141245_995830057927618_1729107216749950674_n.png?stp=dst-png_p320x320&_nc_cat=104&ccb=1-7&_nc_sid=754033&_nc_ohc=uM1BPy0fIzIAX__pi-S&_nc_ht=scontent.flwo4-2.fna&oh=00_AfAGbHkzA_hGuBM7t4ciNx01OyEiyM1YcpoND305vHZZfg&oe=65053348">
+            <img class="main_logo" src="/static/image/main-logo.png">
           </a>
 
 
@@ -24,9 +24,90 @@
       </nav>
 
 
+    <section class="discount-body-part">
+        <div class="discount">
+            <h2>Discount</h2>
+            <br>
+            <p>Create account and get 10% discount for all products</p>
+        </div>
+    </section>
+
+
+    <section class="third_body_part">
+        <div class="service-section">
+            <div class="inner-width">
+                <h1 class="section-title">Our Services</h1>
+                <div class="border-ser"></div>
+
+                <div class="services-container">
+
+
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <div class="service-title">Розробка Індивідульного Проекту</div>
+                    </div>
+
+
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <i class="fa-solid fa-ruler"></i>
+                        </div>
+                        <div class="service-title">Виїзд майстра на заміри</div>
+
+                    </div>
+
+
+
+                     <div class="service-box">
+                        <div class="service-icon">
+                            <i class="fa-solid fa-chair"></i>
+                        </div>
+                        <div class="service-title">Корпусні меблі</div>
+
+                    </div>
+
+
+                     <div class="service-box">
+                        <div class="service-icon">
+                            <i class="fa-solid fa-kitchen-set"></i>
+                        </div>
+                        <div class="service-title">Кухні на замовлення</div>
+
+                    </div>
+
+
+                     <div class="service-box">
+                        <div class="service-icon">
+                            <i class="fa-solid fa-hammer"></i>
+                        </div>
+                        <div class="service-title">Стільниці і Фасади</div>
+
+                    </div>
+
+
+                     <div class="service-box">
+                        <div class="service-icon">
+                            <i class="fa-solid fa-pencil"></i>
+                        </div>
+                        <div class="service-title">Розробка Індивідульного Проекту</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
 
 
 </section>
+
+
+
+
 
 
 {% endblock %}

@@ -1,10 +1,23 @@
+.title-prodcut-body-sale{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+}
+
+.title-prodcut-body-sale h2{
+    padding-top: 30px;
+    margin: 25px;
+}
+
+
 .try_page_body{
-    height: 320vh;
+    height: 240vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background-color: #f5f5f5 ;
+    background-color: #f5f5f5;
 }
 
 
