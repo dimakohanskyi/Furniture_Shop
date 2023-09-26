@@ -1,14 +1,12 @@
 from datetime import datetime
-from flask import Flask, render_template, request, jsonify, flash
-from flask_sqlalchemy import SQLAlchemy, query, session
+from flask import Flask, render_template, request, jsonify
+from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm.exc import NoResultFound
 import bcrypt                                    #for hashed passwords
 import re                                        #for validation email
 from password_validator import PasswordValidator
 import smtplib
 from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-
 from dotenv import load_dotenv
 import os
 
@@ -76,6 +74,16 @@ def product_page():
     return render_template('product.html')
 
 
+@app.route('/product2')
+def product_second_page():
+    return render_template('product_secondPage.html')
+
+
+@app.route('/product3')
+def product_third_page():
+    return render_template('product_thirdPage.html')
+
+
 @app.route('/services')
 def services_page():
     return render_template('services.html')
@@ -100,6 +108,10 @@ def register_page():
 def try_page():
     return render_template('try_xyi.html')
 
+
+## Адмін панель в яку буде входити змога адміна добавляти асортимент змінювати ціни і тд
+
+## Функція яка буде первіряти чи користувач зареєстрований, якщо це True автоматично давати знижку на весь асортимент
 
 @app.route('/login_validation', methods=['POST'])
 def login_validation():

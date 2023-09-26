@@ -1,0 +1,22 @@
+.welcome_block_location_page{
+    background-image: url('/static/image/service_back.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+
+.map-box{
+    display: flex;
+    align-items: center;
+    padding: 40px;
+}
+
+.map-box{
+    margin: 40px;
+    width: 650px;
+    border: solid grey;
+    border-radius: 50px;
+    border-width: 2px;
+}

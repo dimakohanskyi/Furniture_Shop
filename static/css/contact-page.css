@@ -1,0 +1,15 @@
+.welcome_block_contact_page{
+    background-image: url('/static/image/service_back.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+
+.fifth_body_part{
+    background-image: url('/static/image/service_back.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

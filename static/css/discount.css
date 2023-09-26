@@ -1,0 +1,24 @@
+.discount-body-part{
+    height: 60vh;
+    background-image: url('/static/image/ready3.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.9;
+
+}
+
+.discount h2{
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+
+.discount p{
+    color: white;
+    font-size: 20px;
+}
+
