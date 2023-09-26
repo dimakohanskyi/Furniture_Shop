@@ -75,3 +75,29 @@
 
 
 
+.swich-page-container ul{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+
+}
+
+
+.swich-page-container{
+    padding-top: 20px;
+}
+
+
+.swich-page-container ul li{
+    padding: 15px;
+}
+
+
+.swich-page-container ul li a{
+    text-decoration: none;
+    color: black;
+    font-size: 22px;
+}
+
+
+
