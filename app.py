@@ -23,6 +23,8 @@ app.config['SECRET_KEY'] = [os.getenv("SECRET_KEY_DB")]
 db = SQLAlchemy(app)
 
 
+## replace database to atnother file
+
 class Users(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
@@ -30,6 +32,9 @@ class Users(db.Model):
     password = db.Column(db.String(50))
     role = db.Column(db.String)
     time = db.Column(db.DateTime, default=datetime.utcnow)
+
+
+    ## create a database for products
 
 
 @app.route('/')
