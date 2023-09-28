@@ -4,17 +4,13 @@
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
-
 }
-
-
 
 .main_logo {
     position: relative;
-    width: 60px;
-    height: 60px;
-    border-radius: 20px;
-    left: 20px;
+    width: 70px;
+    height: 70px;
+    left: 30px;
 }
 
 
@@ -23,6 +19,24 @@
     background: transparent;
     border: 2px solid rgba(255,255,255,0.5);
 }
+
+.navbar{
+    position: fixed;
+    width: 100%;
+}
+
+
+.navbar-nav1{
+    display: flex;
+    list-style-type: none;
+}
+
+.navbar-nav1 a{
+    justify-content: between;
+    padding-left: 150px;
+    padding-top: 20px;
+}
+
 
 
 .title_information{
