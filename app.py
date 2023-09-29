@@ -1,6 +1,6 @@
 from datetime import datetime
 from flask import Flask, render_template, request, jsonify
-from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy, session
 from sqlalchemy.orm.exc import NoResultFound
 import bcrypt                                    #for hashed passwords
 import re                                        #for validation email
@@ -21,6 +21,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///e:/PROJECTS/log in flask/db/users.db'
 app.config['SECRET_KEY'] = [os.getenv("SECRET_KEY_DB")]
 db = SQLAlchemy(app)
+
 
 
 ## replace database to atnother file
@@ -114,11 +115,15 @@ def try_page():
     return render_template('try_xyi.html')
 
 
-## Адмін панель в яку буде входити змога адміна добавляти асортимент змінювати ціни і тд
+@app.route('/admin_panel')
+def admin_panel():
+    return render_template('admin-panel.html')
 
+
+## Адмін панель в яку буде входити змога адміна добавляти асортимент змінювати ціни і тд
 ## Функція яка буде первіряти чи користувач зареєстрований, якщо це True автоматично давати знижку на весь асортимент
 
-@app.route('/login_validation', methods=['POST'])
+@app.route('/login_validation', methods=['POST', 'GET'])
 def login_validation():
     email_data_from_input = request.form.get('email')
     password_data_from_input = request.form.get('password')
@@ -129,8 +134,11 @@ def login_validation():
                                          hashed_password=user.password)
 
         if user and check_passwords:
-            return render_template('index.html')
-
+            admin_user = Users.query.filter_by(email=email_data_from_input, role='admin').all()
+            if admin_user:
+                return render_template('admin-panel.html')
+            else:
+                return render_template('index.html')
         else:
             return jsonify({'message': 'Invalid email or password'}), 401
 
@@ -144,10 +152,8 @@ def register_validation():
     password_1 = request.form.get('password1')
     password_2 = request.form.get('password2')
 
-    pattern = r"^[\w\.-]+@[\w\.-]+\.\w+$"
-    if re.match(pattern, email_reg):
-        print(True)
-    else:
+    email_pattern = r"^[\w\.-]+@[\w\.-]+\.\w+$"
+    if not re.match(email_pattern, email_reg):
         return jsonify({"message": "Invalid email address"}), 400
 
     if not password_1 or not password_2:
@@ -158,9 +164,7 @@ def register_validation():
     password_validator.min(6).max(20).has().lowercase().has().uppercase().has().digits().has().symbols()
     is_valid = password_validator.validate(password_1)
 
-    if is_valid:
-        print('Password is valid')
-    else:
+    if not is_valid:
         return jsonify({"message": "Invalid password, Password must have at list one Upper Case,"
                                    " digits, symbols and range 6-20"})
 
